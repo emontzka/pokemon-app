@@ -10,13 +10,20 @@ const PokemonContainer = styled.div`
     margin-bottom: 30px;
 `
 
+const ImgContainer = styled.div`
+    min-height: 96px;
+`
+
 export default function Pokemon(props) {
 
     const {experience, name, height, image, weight} = props.data
     return (
         <PokemonContainer>
             <h2 style={{textTransform: "capitalize"}}>{name}</h2>
-            <img src={image} />
+            <ImgContainer>
+                <img src={image} />
+            </ImgContainer>
+            
                 <p>height: {height}<br />
                 weight: {weight}<br />
                 experience: {experience}</p>

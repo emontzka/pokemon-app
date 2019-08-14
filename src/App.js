@@ -5,7 +5,10 @@ import './App.css'
 import Pokemon from './components/Pokemon'
 import RandomPokemon from './components/RandomPokemon';
 import Header from './components/Header'
+import Loader from './components/Loader'
 import styled from 'styled-components'
+
+
 
 const InitialPokeContainer = styled.div`
   display: flex;
@@ -32,6 +35,7 @@ class  App extends Component {
     return (
       <div className="App">
         <Header />
+        <Loader />
         <InitialPokeContainer>
           {initialPoke && (Object.keys(initialPoke).map(poke => {
             return <Pokemon key={poke} data={initialPoke[poke]} />
