@@ -18,7 +18,7 @@ class RandomPokemon extends Component {
             try {
                 if (this.props.randomPoke !== null) {
                     await this.props.dispatch(deleteRandomPokemon('randomPoke'))
-                    this.props.dispatch(handleGeneratePokemon())
+                    await this.props.dispatch(handleGeneratePokemon())
                 } else {
                     await this.props.dispatch(handleGeneratePokemon())
                 }
