@@ -24,9 +24,24 @@ const RandomPokeContainer = styled.div`
 `
 
 class  App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isFetching: false
+    }
+  }
 
   componentDidMount() {
-    this.props.dispatch(handleInitialPokemon())
+    this.setState({isFetching: true}, async () => {
+      try {
+        await this.props.dispatch(handleInitialPokemon())
+        this.setState({isFetching: false})
+      } catch (e) {
+        console.error(e)
+        this.setState({isFetching: false})
+      }
+    })
+    
   }
 
   render() {
@@ -35,8 +50,8 @@ class  App extends Component {
     return (
       <div className="App">
         <Header />
-        <Loader />
         <InitialPokeContainer>
+          {this.state.isFetching && <Loader />}
           {initialPoke && (Object.keys(initialPoke).map(poke => {
             return <Pokemon key={poke} data={initialPoke[poke]} />
           }))}
