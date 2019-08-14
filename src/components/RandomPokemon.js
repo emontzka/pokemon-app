@@ -22,7 +22,7 @@ function RandomPokemon(props) {
     }
     return (
         <div>
-            <button onClick={() => handleRandomPokemon()}>{buttonText}</button>
+            <button style={{marginBottom: 20}} onClick={() => handleRandomPokemon()}>{buttonText}</button>
             <div style={{minHeight: 230}}>
                 {poke &&  (
                     <Pokemon key={poke.id} data={poke} />      

@@ -5,6 +5,20 @@ import './App.css'
 import Pokemon from './components/Pokemon'
 import RandomPokemon from './components/RandomPokemon';
 import Header from './components/Header'
+import styled from 'styled-components'
+
+const InitialPokeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30x;
+`
+
+const RandomPokeContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 class  App extends Component {
 
@@ -18,14 +32,14 @@ class  App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="initial-poke">
+        <InitialPokeContainer>
           {initialPoke && (Object.keys(initialPoke).map(poke => {
             return <Pokemon key={poke} data={initialPoke[poke]} />
           }))}
-        </div>
-        <div className="random-poke">
+        </InitialPokeContainer>
+        <RandomPokeContainer>
           <RandomPokemon />
-        </div>
+        </RandomPokeContainer>
       </div>
     );
   }
