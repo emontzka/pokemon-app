@@ -14,6 +14,7 @@ class RandomPokemon extends Component {
     }
 
     handleRandomPokemon() {
+        if (this.state.isFetching) return;
         this.setState({isFetching: true}, async () => {
             try {
                 if (this.props.randomPoke !== null) {
